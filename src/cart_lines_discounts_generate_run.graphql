@@ -1,0 +1,25 @@
+query CartLinesDiscountsGenerateRunInput {
+  cart {
+    attribute(key: "eligible_city") {
+      key
+      value
+    }
+    deliveryGroups {
+      deliveryAddress {
+        city
+      }
+    }
+    lines {
+      id
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          product {
+            vendor
+          }
+        }
+      }
+    }
+  }
+}
